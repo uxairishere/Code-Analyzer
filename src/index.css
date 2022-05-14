@@ -23,12 +23,13 @@ code {
 }
 
 .heading{
-  color: green;
+  color: rgb(119, 230, 119);
   font-family: 'Orbitron', sans-serif;
 }
 .description{
   font-family: 'Tangerine', cursive;
   font-size: 3rem;
+  color: aliceblue;
 }
 .btn{
   margin: 1rem 0 0 0;
@@ -37,4 +38,28 @@ code {
   .description{
     font-size: 2rem;
   }
+
 }
+
+h5, h6{
+  color: aliceblue;
+}
+body{
+  background-image: url('./components/background3.jpg');
+  background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    background-color: black;
+    
+    backdrop-filter: blur(2px);
+
+}
+
+code{
+  color: rgb(119, 230, 119);
+}
+.greenerror{
+  color: rgb(119, 230, 119);
+
+}
+
