@@ -8,7 +8,7 @@ const Home = () => {
 
     const [file, setFile] = useState(null);
     const [data, setData] = useState("");
-    
+
     var cleandata = '';
 
     const OnChangeHandle = (e) => {
@@ -74,24 +74,24 @@ const Home = () => {
         const joinBracketsArr = cleanspaceArr.join('');
         cleandata = joinBracketsArr.toString();
         console.log("Bracket String: " + cleandata)
-        const bol =  ValidParenthesis(cleandata);
+        const bol = ValidParenthesis(cleandata);
 
-        
+
         const error = (
             <h6>Status: <span style={{ color: "red" }}>Invalid Parenthesis</span></h6>
         )
         const fine = (
             <h6>Status: <span className="greenerror">Good!</span></h6>
         )
-    
+
         const statusCheck = ReactDOM.createRoot(document.getElementById('status'));
-    
+
         if (bol === true) {
             statusCheck.render(
                 fine
             )
         }
-        if(bol === false) {
+        if (bol === false) {
             statusCheck.render(
                 error
             )
@@ -114,17 +114,17 @@ const Home = () => {
             if (cleanspaceArr[i].includes("if")) {
                 ifCount++;
             }
-            if(ifCount === null) ifCount = 0;
+            if (ifCount === null) ifCount = 0;
 
             if (cleanspaceArr[i].includes("else")) {
                 elseCount++;
             }
-            if(elseCount === null) elseCount = 0;
+            if (elseCount === null) elseCount = 0;
 
             if (cleanspaceArr[i].includes("class")) {
                 classCount++;
             }
-            if(classCount === null) classCount = 0;
+            if (classCount === null) classCount = 0;
 
             if (cleanspaceArr[i] === "string[]" ||
                 cleanspaceArr[i] === "short" ||
@@ -137,27 +137,27 @@ const Home = () => {
                 cleanspaceArr[i] === "char") {
                 dataTypeCount++;
             }
-            if(dataTypeCount === null) dataTypeCount = 0;
+            if (dataTypeCount === null) dataTypeCount = 0;
 
             if (cleanspaceArr[i].includes("import")) {
                 dependCount++;
             }
-            if(dependCount === null) dependCount = "No Dependencies";
+            if (dependCount === null) dependCount = "No Dependencies";
 
             if (cleanspaceArr[i].includes("for")) {
                 forloopCount++;
             }
-            if(forloopCount === null) forloopCount = 0;
+            if (forloopCount === null) forloopCount = 0;
 
-            if(cleanspaceArr[i].includes("while")){
+            if (cleanspaceArr[i].includes("while")) {
                 whileLoopCount++
             }
-            if(whileLoopCount === null) whileLoopCount = 0;
+            if (whileLoopCount === null) whileLoopCount = 0;
 
-            if(cleanspaceArr[i]=== "do{" || cleanspaceArr[i]=== "do"){
+            if (cleanspaceArr[i] === "do{" || cleanspaceArr[i] === "do") {
                 doLoopCount++
             }
-            if(doLoopCount === null) doLoopCount = 0;
+            if (doLoopCount === null) doLoopCount = 0;
 
 
 
@@ -176,62 +176,41 @@ const Home = () => {
     }
 
     const ClearDisplay = () => {
-        
+
         setData("");
     }
 
-
-    
-    
-
-    
-    
-    
-    
-
-
-
-
-
     return (
         <>
-        <div className="background"></div>
-        <main className="container code-display-container" style={{ paddingTop: "5rem", textAlign: "center" }}>
-            <div className="container">
-                <h1 className="heading">Smart Code Analizer</h1>
-                <p className="description">Identify all if statements, else statements, Classes and data types in<br></br>Java Source Code</p>
+            <main className="container code-display-container" id="main" style={{ paddingTop: "5rem", textAlign: "center" }}>
+                <ul class="bg-bubbles">
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <div className="container">
+                    <h1 className="heading">Smart Code Analizer</h1>
+                    <p className="description">Identify all if statements, else statements, Classes and data types in<br></br>Java Source Code</p>
 
-                <input name="fileInput" onClick={ClearDisplay} onChange={OnChangeHandle} className="form-control" type='file' />
-                <button className="btn btn-success" onClick={OnClickHandle}>Diplay Data</button>
+                    <input name="fileInput" onClick={ClearDisplay} onChange={OnChangeHandle} className="form-control" type='file' />
+                    <button className="btn btn-success" onClick={OnClickHandle}>Diplay Data</button>
 
-            </div><br></br>
-            <div className="container" style={{ textAlign: "left" }}>
-                <h6>If statements:  {ifCounter}</h6>
-                <h6>else statements:  {elseCounter}</h6>
-                <h6>Classes:  {classCounter}</h6>
-                <h6>Data Types:  {dataTypesCounter}</h6>
-                <h6>Dependencies:  {depend}</h6>
-                <h6>For loops:  {forloop}</h6>
-                <h6>while loops:  {whileLoopCounter}</h6>
-                <h6>do-while loops:  {doLoopCounter}</h6>
+                </div><br></br>
+                <div className="container" style={{ textAlign: "left" }}>
+                    <h6>If statements:  {ifCounter}</h6>
+                    <h6>else statements:  {elseCounter}</h6>
+                    <h6>Classes:  {classCounter}</h6>
+                    <h6>Data Types:  {dataTypesCounter}</h6>
+                    <h6>Dependencies:  {depend}</h6>
+                    <h6>For loops:  {forloop}</h6>
+                    <h6>while loops:  {whileLoopCounter}</h6>
+                    <h6>do-while loops:  {doLoopCounter}</h6>
 
+                    <div id="status"></div>
+                    <hr></hr>
+                    <div id="display"></div>
+                    <div className="about" style={{height: "20rem"}}></div>
 
-
-                <div id="status"></div>
-
-
-
-                <hr></hr>
-
-
-                {/* <div className="" style={{ marginBottom: "2rem", backgroundColor: "#212529", overflowY: "scroll", height: "300px" }}>
-                    <pre><code style={{ color: "green" }}>{data}</code></pre>
-                </div> */}
-
-                <div id="display"></div>
-
-            </div>
-        </main>
+                </div>
+            </main>
         </>
     );
 }
