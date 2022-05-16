@@ -3,7 +3,6 @@ import { useState } from "react";
 import * as ReactDOM from 'react-dom/client';
 import ValidParenthesis from './validation'
 
-
 const Home = () => {
 
     const [file, setFile] = useState(null);
@@ -34,11 +33,16 @@ const Home = () => {
     const [forloop, setForLoop] = useState(null);
     const [whileLoopCounter, setWhileLoopCounter] = useState(null);
     const [doLoopCounter, setdoLoopCounter] = useState(null);
+    const [exteneds, setExtends] = useState(null);
+    const [inter, setInter] = useState(null);
+    const [imple, setImple] = useState(null);
+
+
 
     const myElement = (
 
         <div className="code-display-container" style={{ marginBottom: "2rem", backgroundColor: "#212529", overflowY: "scroll", height: "300px" }}>
-            <pre><code style={{ color: "green" }}>{data}</code></pre>
+            <pre><code style={{ color: "#53e3a6" }}>{data}</code></pre>
         </div>
     )
     // #0096FF
@@ -109,6 +113,9 @@ const Home = () => {
         var forloopCount = null;
         var whileLoopCount = null;
         var doLoopCount = null;
+        var extendsCount = null;
+        var interCount = null;
+        var impleCount = null;
 
         for (let i = 0; i < cleanspaceArr.length; i++) {
             if (cleanspaceArr[i].includes("if")) {
@@ -121,7 +128,7 @@ const Home = () => {
             }
             if (elseCount === null) elseCount = 0;
 
-            if (cleanspaceArr[i].includes("class")) {
+            if (cleanspaceArr[i] === ("class")) {
                 classCount++;
             }
             if (classCount === null) classCount = 0;
@@ -139,7 +146,7 @@ const Home = () => {
             }
             if (dataTypeCount === null) dataTypeCount = 0;
 
-            if (cleanspaceArr[i].includes("import")) {
+            if (cleanspaceArr[i] === ("import")) {
                 dependCount++;
             }
             if (dependCount === null) dependCount = "No Dependencies";
@@ -160,6 +167,22 @@ const Home = () => {
             if (doLoopCount === null) doLoopCount = 0;
 
 
+            if(cleandata[i] === "extends"){
+                extendsCount++;
+            }
+            if (extendsCount === null) extendsCount = 0;
+
+            if(cleandata[i] === "interface"){
+                interCount++;
+            }
+            if (interCount === null) interCount = 0;
+
+            if(cleandata[i] === "implements"){
+                impleCount++;
+            }
+            if (impleCount === null) impleCount = 0;
+
+
 
         }
         setIfCounter(ifCount);
@@ -170,6 +193,9 @@ const Home = () => {
         setForLoop(forloopCount);
         setWhileLoopCounter(whileLoopCount);
         setdoLoopCounter(doLoopCount);
+        setExtends(extendsCount);
+        setInter(interCount);
+        setImple(impleCount);
 
 
 
@@ -184,30 +210,52 @@ const Home = () => {
         <>
             <main className="container code-display-container" id="main" style={{ paddingTop: "5rem", textAlign: "center" }}>
                 <ul class="bg-bubbles">
-                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li><li></li>
                 </ul>
                 <div className="container">
                     <h1 className="heading">Smart Code Analizer</h1>
                     <p className="description">Identify all if statements, else statements, Classes and data types in<br></br>Java Source Code</p>
 
                     <input name="fileInput" onClick={ClearDisplay} onChange={OnChangeHandle} className="form-control" type='file' />
-                    <button className="btn btn-success" onClick={OnClickHandle}>Diplay Data</button>
+                    <button className="btn btn-outline-light" onClick={OnClickHandle}>Diplay Data</button>
 
                 </div><br></br>
                 <div className="container" style={{ textAlign: "left" }}>
                     <h6>If statements:  {ifCounter}</h6>
                     <h6>else statements:  {elseCounter}</h6>
                     <h6>Classes:  {classCounter}</h6>
+                    <h6>Interfaces:  {inter}</h6>
                     <h6>Data Types:  {dataTypesCounter}</h6>
-                    <h6>Dependencies:  {depend}</h6>
+                    <h6>Class Dependencies:  {depend}</h6>
+                    <h6>Interface Dependencies:  {imple}</h6>
                     <h6>For loops:  {forloop}</h6>
                     <h6>while loops:  {whileLoopCounter}</h6>
                     <h6>do-while loops:  {doLoopCounter}</h6>
+                    <h6>Inheritance:  {exteneds}</h6>
+
 
                     <div id="status"></div>
-                    <hr></hr>
+                    <hr style={{color: "white"}}></hr>
                     <div id="display"></div>
-                    <div className="about" style={{height: "20rem"}}></div>
+                    {/* INSTRUCTIONS  */}
+                        <div class="float-container container">
+
+                            <div class="float-child git-desc-con">
+                                <h1>What is it?</h1>
+                                <p>Good question!</p>
+                                <p>Here by uploading you source code file above you can analize your large code and can find how many Dependencies, Classes and conditions and loops you are using...</p>
+                                <h6>Not enough?</h6>
+                                <p>Don't worry to read more about this tool in details vist our github repository by clciking on button below...</p>
+
+                                <a href="https://github.com/uxairishere/Code-Analizer"><button className="btn btn-outline-light btn-profile">Repository</button></a>
+                            </div>
+
+                            <div class="float-child git-second">
+                                <div className="about-code-img"></div>
+                            </div>
+
+                        </div>
+                    
 
                 </div>
             </main>
