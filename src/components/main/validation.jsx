@@ -6,6 +6,7 @@ import React from "react";
 //     const stack = [];
 //     const characters = { ')': '(', '}': '{', ']': '['};
 //   for (const char of str) {
+            
         
 //       if (!characters[char]){
 //          stack.push(char); 

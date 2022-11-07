@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import * as ReactDOM from 'react-dom/client';
-import ValidParenthesis, { RemoveJavaComments } from './validation'
+import ValidParenthesis, { RemoveJavaComments } from './validation';
+import Charts from "./Charts"
 
 const Home = () => {
 
@@ -29,18 +30,18 @@ const Home = () => {
     const [elseCounter, setelseCounter] = useState(null);
     const [classCounter, setclassCounter] = useState(null);
     const [dataTypesCounter, setDataTypesCounter] = useState(null);
-    const [depend, setDepend] = useState(null);
+    const [deepend, setDepend] = useState(null);
     const [forloop, setForLoop] = useState(null);
     const [whileLoopCounter, setWhileLoopCounter] = useState(null);
     const [doLoopCounter, setdoLoopCounter] = useState(null);
-    const [exteneds, setExtends] = useState(null);
+    const [exteends, setExtends] = useState(null);
     const [inter, setInter] = useState(null);
     const [imple, setImple] = useState(null);
 
     const myElement = (
 
         <div className="code-display-container" style={{ marginBottom: "2rem", backgroundColor: "#212529", overflowY: "scroll", height: "300px" }}>
-            <pre><code style={{ color: "#53e3a6" }}>{data}</code></pre>
+            <pre><code style={{ color: "#0dcaf0" }}>{data}</code></pre>
         </div>
     )
 
@@ -125,7 +126,7 @@ const Home = () => {
                 }
                 if (elseCount === null) elseCount = 0;
 
-                if (cleanspaceArr[i] === ("className")) {
+                if (cleanspaceArr[i] === ("class")) {
                     classCount++;
                 }
                 if (classCount === null) classCount = 0;
@@ -146,7 +147,7 @@ const Home = () => {
                 if (cleanspaceArr[i] === ("import")) {
                     dependCount++;
                 }
-                if (dependCount === null) dependCount = "No Dependencies";
+                if (dependCount === null) dependCount = 0;
 
                 if (cleanspaceArr[i].includes("for")) {
                     forloopCount++;
@@ -164,17 +165,17 @@ const Home = () => {
                 if (doLoopCount === null) doLoopCount = 0;
 
 
-                if (cleandata[i] === "extends") {
+                if (cleanspaceArr[i] === "extends") {
                     extendsCount++;
                 }
                 if (extendsCount === null) extendsCount = 0;
 
-                if (cleandata[i] === "interface") {
+                if (cleanspaceArr[i] === "interface") {
                     interCount++;
                 }
                 if (interCount === null) interCount = 0;
 
-                if (cleandata[i] === "implements") {
+                if (cleanspaceArr[i] === "implements") {
                     impleCount++;
                 }
                 if (impleCount === null) impleCount = 0;
@@ -196,7 +197,39 @@ const Home = () => {
 
 
         }
+
     }
+            // Chart DATA 
+            const dataofpie= [
+                {
+                  "name": "If",
+                  "value": ifCounter
+                },
+                {
+                  "name": "For loop",
+                  "value": forloop
+                },
+                {
+                  "name": "While loop",
+                  "value": whileLoopCounter
+                },
+                {
+                  "name": "do loop Counter",
+                  "value": doLoopCounter
+                },
+                {
+                  "name": " Class counter",
+                  "value": classCounter
+                },
+                {
+                  "name": "Else ",
+                  "value": elseCounter
+                },
+                {
+                    "name": "Data Type",
+                    "value": dataTypesCounter
+                }
+              ]
 
     return (
         <>
@@ -205,43 +238,47 @@ const Home = () => {
                     <li></li><li></li><li></li><li></li><li></li>
                 </ul>
                 <div className="container">
-                    <h1 className="heading">Smart Code Analizer</h1>
+                    <h1 className="heading text-info">Smart Code Analizer</h1>
                     <p className="description">Identify all if statements, else statements, Classes and data types in<br></br>Java Source Code</p>
 
-                    <input name="fileInput" onChange={OnChangeHandle} className="form-control" type='file' />
-                    <button className="btn btn-outline-light" onClick={OnClickHandle}>Diplay Data</button>
+                    <input name="fileInput" onChange={OnChangeHandle} className="form-control" type='file' multiple />
+                    <button className="btn btn-outline-info" onClick={OnClickHandle}>Diplay Data</button>
 
                     <div id="flash-it"></div>
 
                 </div><br></br>
                 <div className="container" style={{ textAlign: "left" }}>
-                    <h6>If statements:  {ifCounter}</h6>
-                    <h6>else statements:  {elseCounter}</h6>
-                    <h6>Classes:  {classCounter}</h6>
-                    <h6>Interfaces:  {inter}</h6>
-                    <h6>Data Types:  {dataTypesCounter}</h6>
-                    <h6>Class Dependencies:  {depend}</h6>
-                    <h6>Interface Dependencies:  {imple}</h6>
-                    <h6>For loops:  {forloop}</h6>
-                    <h6>while loops:  {whileLoopCounter}</h6>
-                    <h6>do-while loops:  {doLoopCounter}</h6>
-                    <h6>Inheritance:  {exteneds}</h6>
+                    <h6>If statements:  <span className="text-info">{ifCounter}</span></h6>
+                    <h6>else statements:  <span className="text-info">{elseCounter}</span></h6>
+                    <h6>Classes:  <span className="text-info">{classCounter}</span></h6>
+                    <h6>Interfaces:  <span className="text-info">{inter}</span></h6>
+                    <h6>Data Types:  <span className="text-info">{dataTypesCounter}</span></h6>
+                    <h6>Class Dependencies:  <span className="text-info">{deepend}</span></h6>
+                    <h6>Interface Dependencies:  <span className="text-info">{imple}</span></h6>
+                    <h6>For loops:  <span className="text-info">{forloop}</span></h6>
+                    <h6>while loops:  <span className="text-info">{whileLoopCounter}</span></h6>
+                    <h6>do-while loops:  <span className="text-info">{doLoopCounter}</span></h6>
+                    <h6>Inheritance:  <span className="text-info">{exteends}</span></h6>
 
 
                     <div id="status"></div>
                     <hr style={{ color: "white" }}></hr>
                     <div id="display"></div>
+
+                    <div>
+                    <Charts dataofpie={dataofpie}/>
+                    </div>
                     {/* INSTRUCTIONS  */}
                     <div className="float-container container">
 
                         <div className="float-child git-desc-con">
-                            <h1>What is it?</h1>
+                            <h1 className="text-info heading">What is it?</h1>
                             <p>Good question!</p>
                             <p>Here by uploading you source code file above you can analize your large code and can find how many Dependencies, Classes and conditions and loops you are using...</p>
                             <h6>Not enough?</h6>
                             <p>Don't worry to read more about this tool in details vist our github repository by clciking on button below...</p>
 
-                            <a href="https://github.com/uxairishere/Code-Analizer"><button className="btn btn-outline-light btn-profile">Repository</button></a>
+                            <a href="https://github.com/uxairishere/Code-Analizer"><button className="btn btn-outline-info btn-profile">Repository</button></a>
                         </div>
 
                         <div className="float-child git-second">

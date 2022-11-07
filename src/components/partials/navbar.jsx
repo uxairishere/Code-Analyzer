@@ -17,16 +17,9 @@ const Navbar = () => {
             <a className="nav-link nav-heading" href="#">Link</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled nav-heading" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a className="nav-link nav-heading" href="http://localhost:5000" tabindex="-1" aria-disabled="true">Home</a>
           </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle nav-heading" href="#" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul className="dropdown-menu" aria-labelledby="dropdown08">
-              <li><a className="dropdown-item nav-heading" href="#">Action</a></li>
-              <li><a className="dropdown-item nav-heading" href="#">Another action</a></li>
-              <li><a className="dropdown-item nav-heading" href="#">Something else here</a></li>
-            </ul>
-          </li>
+          
         </ul>
       </div>
       
