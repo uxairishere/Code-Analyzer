@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Code-Analyzer/static/css/main.edde72d7.css",
+    "main.js": "/Code-Analyzer/static/js/main.63e10490.js",
+    "static/js/787.b701888c.chunk.js": "/Code-Analyzer/static/js/787.b701888c.chunk.js",
+    "static/media/codingicon.png": "/Code-Analyzer/static/media/codingicon.9ee5edd637628a160b4f.png",
+    "index.html": "/Code-Analyzer/index.html",
+    "main.edde72d7.css.map": "/Code-Analyzer/static/css/main.edde72d7.css.map",
+    "main.63e10490.js.map": "/Code-Analyzer/static/js/main.63e10490.js.map",
+    "787.b701888c.chunk.js.map": "/Code-Analyzer/static/js/787.b701888c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.edde72d7.css",
+    "static/js/main.63e10490.js"
+  ]
+}
