@@ -6,12 +6,12 @@ Analyzes and reports on the source code structure of a program or software
 <p>Analyze it and give the report in from of graphs representations</p>
 <p>Performs Valid Parenthesis</p>
 <h3>IDENTIFIES:</h3>
-<p>-Number of conditional statements</p>
-<p>-Number of classes</p>
-<p>-Number of datatypes</p>
-<p>-Number of dependencies</p>
-<p>-Number of interfaces</p>
-<p>-Number of loops and identifies its types</p>
+<p> ○ Number of conditional statements</p>
+<p> ○ Number of classes</p>
+<p> ○ Number of datatypes</p>
+<p> ○ Number of dependencies</p>
+<p> ○ Number of interfaces</p>
+<p> ○ Number of loops and identifies its types</p>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
